@@ -1,0 +1,6 @@
+{
+  "name": "Zelaqi Pack Ethiopia",
+  "description": "Sustainable Paper Bag Solutions. Driving the transition from prohibited single-use plastics to affordable, durable, and eco-friendly packaging for Ethiopian businesses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
