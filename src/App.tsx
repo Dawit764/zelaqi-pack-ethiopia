@@ -14,9 +14,11 @@ import ConclusionTimeline from './components/ConclusionTimeline';
 import Appendices from './components/Appendices';
 import Footer from './components/Footer';
 import ProclamationModal from './components/ProclamationModal';
+import SampleRequestModal from './components/SampleRequestModal';
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
 
   const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
@@ -30,6 +32,7 @@ export default function App() {
       {/* Navigation Header */}
       <Navbar
         onOpenModal={() => setIsModalOpen(true)}
+        onOpenSampleModal={() => setIsSampleModalOpen(true)}
         onScrollTo={handleScrollTo}
       />
 
@@ -56,6 +59,12 @@ export default function App() {
       <ProclamationModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+      />
+
+      {/* Sample Request Modal */}
+      <SampleRequestModal
+        isOpen={isSampleModalOpen}
+        onClose={() => setIsSampleModalOpen(false)}
       />
     </div>
   );

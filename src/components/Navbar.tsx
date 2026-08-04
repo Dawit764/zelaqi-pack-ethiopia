@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { Leaf, Scale, Menu, X } from 'lucide-react';
+import { Leaf, Scale, Menu, X, Package } from 'lucide-react';
 
 interface NavbarProps {
   onOpenModal: () => void;
+  onOpenSampleModal: () => void;
   onScrollTo: (id: string) => void;
 }
 
-export default function Navbar({ onOpenModal, onScrollTo }: NavbarProps) {
+export default function Navbar({ onOpenModal, onOpenSampleModal, onScrollTo }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const sections = [
@@ -68,6 +69,13 @@ export default function Navbar({ onOpenModal, onScrollTo }: NavbarProps) {
           {/* Action Buttons */}
           <div className="hidden sm:flex items-center gap-3">
             <button
+              onClick={onOpenSampleModal}
+              className="text-xs font-bold text-white bg-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-700 transition-all flex items-center gap-1.5 shadow-sm cursor-pointer"
+              id="btn-nav-request-sample"
+            >
+              <Package className="w-4 h-4" /> Request Sample
+            </button>
+            <button
               onClick={onOpenModal}
               className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-2 rounded-lg border border-emerald-100 hover:bg-emerald-100 transition-all flex items-center gap-1.5 cursor-pointer"
               id="btn-nav-proclamation"
@@ -102,7 +110,17 @@ export default function Navbar({ onOpenModal, onScrollTo }: NavbarProps) {
               {sec.label}
             </button>
           ))}
-          <div className="pt-2 border-t border-stone-100">
+          <div className="pt-2 border-t border-stone-100 flex flex-col gap-2">
+            <button
+              onClick={() => {
+                onOpenSampleModal();
+                setIsOpen(false);
+              }}
+              className="w-full text-center py-2 text-xs font-bold text-white bg-emerald-600 rounded-lg shadow-sm cursor-pointer hover:bg-emerald-700 transition-all"
+              id="btn-mob-request-sample"
+            >
+              Request Sample
+            </button>
             <button
               onClick={() => {
                 onOpenModal();
